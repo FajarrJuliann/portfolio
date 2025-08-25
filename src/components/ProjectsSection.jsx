@@ -19,19 +19,19 @@ function ProjectsSection() {
     {
       title: "Portfolio Website",
       description: "A personal portfolio showcasing my work and skills",
-      image: "/assets/project1.jpg",
+      image: "/assets/project1.png",
       link: "#",
     },
     {
       title: "E-Commerce Platform",
       description: "A full-featured online store with payment integration",
-      image: "/assets/project2.jpg",
+      image: "/assets/project2.png",
       link: "#",
     },
     {
       title: "Task Manager",
       description: "A productivity app for task organization and tracking",
-      image: "/assets/project3.jpg",
+      image: "/assets/project3.png",
       link: "#",
     },
   ];
@@ -39,7 +39,7 @@ function ProjectsSection() {
   return (
     <motion.section
       id="projects"
-      className="py-20 px-4 sm:px-6 md:px-8"
+      className="py-20 px-4 sm:px-6 md:px-8 bg-gradient-to-br from-black to-gray-900"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
@@ -47,7 +47,7 @@ function ProjectsSection() {
     >
       <div className="max-w-6xl mx-auto">
         <motion.h2
-          className="text-3xl sm:text-4xl font-bold text-center mb-12 text-cyan-300"
+          className="text-3xl sm:text-4xl font-bold text-center mb-12 text-cyan-300 shadow-neon-cyan-text"
           variants={itemVariants}
         >
           Projects
@@ -65,11 +65,15 @@ function ProjectsSection() {
                 className="w-full h-48 object-cover"
               />
               <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                <p className="text-gray-400 mb-4">{project.description}</p>
+                <h3 className="text-xl font-semibold mb-2 text-cyan-300 shadow-neon-cyan-text">
+                  {project.title}
+                </h3>
+                <p className="text-cyan-300 mb-4 shadow-neon-cyan-text">
+                  {project.description}
+                </p>
                 <a
                   href={project.link}
-                  className="text-cyan-400 hover:text-cyan-300"
+                  className="text-cyan-300 hover:text-cyan-200 shadow-neon-cyan-text"
                 >
                   View Project
                 </a>

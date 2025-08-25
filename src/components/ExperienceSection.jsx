@@ -34,7 +34,7 @@ function ExperienceSection() {
   return (
     <motion.section
       id="experience"
-      className="py-20 px-4 sm:px-6 md:px-8"
+      className="py-20 px-4 sm:px-6 md:px-8 bg-gradient-to-br from-gray-900 to-black"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
@@ -42,7 +42,7 @@ function ExperienceSection() {
     >
       <div className="max-w-6xl mx-auto">
         <motion.h2
-          className="text-3xl sm:text-4xl font-bold text-center mb-12 text-cyan-300"
+          className="text-3xl sm:text-4xl font-bold text-center mb-12 text-cyan-300 shadow-neon-cyan-text"
           variants={itemVariants}
         >
           Experience
@@ -51,13 +51,21 @@ function ExperienceSection() {
           {experiences.map((exp, index) => (
             <motion.div
               key={index}
-              className="bg-gray-800 p-6 rounded-lg shadow-neon-cyan"
+              className="bg-gray-900 p-6 rounded-lg shadow-neon-cyan"
               variants={itemVariants}
             >
-              <h3 className="text-xl font-semibold">{exp.role}</h3>
-              <p className="text-cyan-400">{exp.company}</p>
-              <p className="text-gray-400 mb-2">{exp.period}</p>
-              <p className="text-gray-300">{exp.description}</p>
+              <h3 className="text-xl font-semibold text-cyan-300 shadow-neon-cyan-text">
+                {exp.role}
+              </h3>
+              <p className="text-cyan-300 shadow-neon-cyan-text">
+                {exp.company}
+              </p>
+              <p className="text-cyan-300 mb-2 shadow-neon-cyan-text">
+                {exp.period}
+              </p>
+              <p className="text-cyan-300 shadow-neon-cyan-text">
+                {exp.description}
+              </p>
             </motion.div>
           ))}
         </div>

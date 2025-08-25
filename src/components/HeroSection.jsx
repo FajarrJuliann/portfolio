@@ -66,7 +66,7 @@ function HeroSection() {
             className="text-sm sm:text-base md:text-lg text-cyan-300 mb-8 max-w-md shadow-neon-cyan-text"
             variants={itemVariants}
           >
-            Building scalable, user-friendly web solutions
+            Crafting scalable, user-friendly web and mobile solutions
           </motion.p>
           <motion.div className="flex space-x-3" variants={itemVariants}>
             {socialLinks.map((link, index) => (
