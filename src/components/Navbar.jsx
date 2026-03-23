@@ -41,12 +41,11 @@ function Navbar() {
       className="bg-gray-900 shadow-neon-cyan p-4 sticky top-0 z-20"
       initial="hidden"
       animate="visible"
-      variants={navVariants}
-    >
+      variants={navVariants}>
       <div className="max-w-6xl mx-auto flex justify-between items-center">
         {/* Logo/Brand */}
         <div className="text-2xl font-bold text-cyan-300 font-orbitron">
-          Fajar Julian
+          Fajar Juliann
         </div>
 
         {/* Desktop Menu */}
@@ -62,8 +61,7 @@ function Navbar() {
                       : "text-gray-300 hover:text-cyan-300 hover:shadow-neon-cyan-text"
                   } transition duration-300`
                 }
-                onClick={(e) => handleScroll(e, item.href)}
-              >
+                onClick={(e) => handleScroll(e, item.href)}>
                 {item.name}
               </NavLink>
             </li>
@@ -73,14 +71,12 @@ function Navbar() {
         {/* Mobile Menu Button */}
         <button
           className="md:hidden text-cyan-300 focus:outline-none"
-          onClick={toggleMenu}
-        >
+          onClick={toggleMenu}>
           <svg
             className="w-6 h-6"
             fill="none"
             stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
+            viewBox="0 0 24 24">
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -97,8 +93,7 @@ function Navbar() {
           className="md:hidden mt-4 space-y-4"
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
-          transition={{ duration: 0.3 }}
-        >
+          transition={{ duration: 0.3 }}>
           {menuItems.map((item, index) => (
             <li key={index}>
               <NavLink
@@ -110,8 +105,7 @@ function Navbar() {
                       : "text-gray-300 hover:text-cyan-300 hover:shadow-neon-cyan-text"
                   } transition duration-300`
                 }
-                onClick={(e) => handleScroll(e, item.href)}
-              >
+                onClick={(e) => handleScroll(e, item.href)}>
                 {item.name}
               </NavLink>
             </li>
