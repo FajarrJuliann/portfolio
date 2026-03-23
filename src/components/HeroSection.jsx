@@ -45,27 +45,23 @@ function HeroSection() {
       className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-black"
       variants={containerVariants}
       initial="hidden"
-      animate="visible"
-    >
+      animate="visible">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         {/* Left Column: Text and Social Buttons */}
         <div className="text-left">
           <motion.h1
             className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-cyan-300 mb-6 tracking-tight font-orbitron shadow-neon-cyan-text"
-            variants={itemVariants}
-          >
-            WELCOME TO MY <br /> PORTFOLIO
+            variants={itemVariants}>
+            WELCOME TO MY <br /> PORTFOLIO TESSS UPDATEEEE
           </motion.h1>
           <motion.h2
             className="text-lg sm:text-xl md:text-2xl font-semibold text-cyan-300 mb-6 shadow-neon-cyan-text"
-            variants={itemVariants}
-          >
+            variants={itemVariants}>
             Full Stack Developer
           </motion.h2>
           <motion.p
             className="text-sm sm:text-base md:text-lg text-cyan-300 mb-8 max-w-md shadow-neon-cyan-text"
-            variants={itemVariants}
-          >
+            variants={itemVariants}>
             Crafting scalable, user-friendly web and mobile solutions
           </motion.p>
           <motion.div className="flex space-x-3" variants={itemVariants}>
@@ -75,8 +71,7 @@ function HeroSection() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center text-cyan-300 hover:text-cyan-200 hover:shadow-neon-cyan transition duration-300 shadow-neon-cyan-text"
-              >
+                className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center text-cyan-300 hover:text-cyan-200 hover:shadow-neon-cyan transition duration-300 shadow-neon-cyan-text">
                 {link.icon}
               </a>
             ))}
@@ -95,8 +90,7 @@ function HeroSection() {
               type: "spring",
               stiffness: 120,
               damping: 10,
-            }}
-          >
+            }}>
             <div className="w-40 h-40 sm:w-56 sm:h-56 md:w-80 md:h-80 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-full mx-auto shadow-neon-cyan">
               <img
                 src="/assets/fajar.jpeg"
