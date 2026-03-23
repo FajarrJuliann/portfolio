@@ -16,47 +16,79 @@ function SkillsSection() {
   };
 
   const skills = [
-    "React",
-    "JavaScript",
-    "Node.js",
-    "Tailwind CSS",
-    "HTML/CSS",
-    "Git",
-    "MongoDB",
-    "Python",
-  ];
+  // Web Development
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "TypeScript",
+  "React",
+  "Next.js",
+  "Tailwind CSS",
+  "Bootstrap",
+
+  // Mobile Development
+  "Flutter",
+  "Dart",
+  "Android Development",
+  "iOS Development",
+
+  // Backend Development
+  "Node.js",
+  "Express.js",
+  "Laravel",
+  "RESTful API",
+  // "Authentication & Authorization",
+
+  // Database
+  "PostgreSQL",
+  "MySQL",
+  // "MongoDB",
+
+  // Cloud & DevOps
+  "Cloud Server Management",
+  "Docker",
+  // "Docker Compose",
+  "CI/CD",
+  "Nginx",
+  "Server Deployment",
+
+  // Tools & Collaboration
+  "Git",
+  "GitHub",
+  "GitLab",
+  "Version Control",
+  "API Integration",
+];
+
 
   return (
     <motion.section
-      id="skills"
-      className="py-20 px-4 sm:px-6 md:px-8 bg-gradient-to-br from-gray-900 to-black"
-      variants={containerVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-    >
-      <div className="max-w-6xl mx-auto">
-        <motion.h2
-          className="text-3xl sm:text-4xl font-bold text-center mb-12 text-cyan-300 shadow-neon-cyan-text"
-          variants={itemVariants}
-        >
-          Skills
-        </motion.h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-          {skills.map((skill, index) => (
-            <motion.div
-              key={index}
-              className="bg-gray-900 p-4 rounded-lg text-center shadow-neon-cyan"
-              variants={itemVariants}
-            >
-              <p className="text-lg font-semibold text-cyan-300 shadow-neon-cyan-text">
-                {skill}
-              </p>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </motion.section>
+  id="skills"
+  className="py-20 px-4 sm:px-6 md:px-8 
+             bg-gradient-to-br from-slate-900 to-black"
+>
+  <motion.h2
+    className="text-3xl sm:text-4xl font-bold text-center mb-12 
+               text-cyan-400 shadow-neon-cyan-text-soft"
+  >
+    Skills
+  </motion.h2>
+
+  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+    {skills.map((skill, index) => (
+      <motion.div
+        key={index}
+        className="bg-slate-900 p-4 rounded-lg text-center 
+                   shadow-neon-cyan-soft"
+      >
+        <p className="text-lg font-semibold text-cyan-400">
+          {skill}
+        </p>
+      </motion.div>
+    ))}
+  </div>
+</motion.section>
+
   );
 }
 

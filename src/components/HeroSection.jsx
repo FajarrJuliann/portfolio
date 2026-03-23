@@ -19,22 +19,22 @@ function HeroSection() {
   const socialLinks = [
     {
       name: "GitHub",
-      href: "https://github.com/fajarjulian",
+      href: "https://github.com/FajarrJuliann",
       icon: <FaGithub className="w-5 h-5" />,
     },
     {
       name: "GitLab",
-      href: "https://gitlab.com/fajarjulian",
+      href: "https://gitlab.com/FajarJulian",
       icon: <FaGitlab className="w-5 h-5" />,
     },
     {
       name: "Instagram",
-      href: "https://instagram.com/fajarjulian",
+      href: "https://www.instagram.com/fajarrjuliann_/",
       icon: <FaInstagram className="w-5 h-5" />,
     },
     {
       name: "LinkedIn",
-      href: "https://linkedin.com/in/fajarjulian",
+      href: "https://www.linkedin.com/in/fajarrjuliann",
       icon: <FaLinkedin className="w-5 h-5" />,
     },
   ];

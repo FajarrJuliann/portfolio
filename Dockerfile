@@ -5,24 +5,19 @@ WORKDIR /app
 RUN corepack enable && corepack prepare pnpm@latest --activate
 
 COPY package.json pnpm-lock.yaml* ./
-RUN pnpm install
+RUN pnpm install --frozen-lockfile
 
 COPY . .
 RUN pnpm build
 
-# Stage 2: Production (serve dengan nginx)
+# Stage 2: Production
 FROM nginx:alpine
 WORKDIR /usr/share/nginx/html
 
-# Hapus file default nginx
 RUN rm -rf ./*
 
-# Copy hasil build dari stage builder
 COPY --from=builder /app/dist ./
-
-# Copy custom nginx config
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-EXPOSE 3007
+EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
-
