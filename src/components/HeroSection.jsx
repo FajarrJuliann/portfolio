@@ -52,12 +52,12 @@ function HeroSection() {
           <motion.h1
             className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-cyan-300 mb-6 tracking-tight font-orbitron shadow-neon-cyan-text"
             variants={itemVariants}>
-            WELCOME TO MY <br /> PORTFOLIO
+            WELCOME TO MY <br /> PORTFOLIO SAYA
           </motion.h1>
           <motion.h2
             className="text-lg sm:text-xl md:text-2xl font-semibold text-cyan-300 mb-6 shadow-neon-cyan-text"
             variants={itemVariants}>
-            FUL
+            Full Stack Developer
           </motion.h2>
           <motion.p
             className="text-sm sm:text-base md:text-lg text-cyan-300 mb-8 max-w-md shadow-neon-cyan-text"
