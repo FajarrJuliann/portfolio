@@ -8,6 +8,13 @@ pipeline {
     }
 
     stages {
+
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/FajarrJuliann/portfolio.git'
+            }
+        }
+
         stage('Build Docker Image') {
             steps {
                 sh '''
@@ -18,9 +25,15 @@ pipeline {
 
         stage('Login Registry') {
             steps {
-                sh '''
-                echo "fajarjuliansyah123" | docker login $REGISTRY -u fajar --password-stdin
-                '''
+                withCredentials([usernamePassword(
+                    credentialsId: 'docker-registry',
+                    usernameVariable: 'DOCKER_USER',
+                    passwordVariable: 'DOCKER_PASS'
+                )]) {
+                    sh '''
+                    echo $DOCKER_PASS | docker login $REGISTRY -u $DOCKER_USER --password-stdin
+                    '''
+                }
             }
         }
 
