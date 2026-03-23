@@ -8,12 +8,6 @@ pipeline {
     }
 
     stages {
-        stage('Clone Repository') {
-            steps {
-                git 'https://github.com/FajarrJuliann/portfolio.git'
-            }
-        }
-
         stage('Build Docker Image') {
             steps {
                 sh '''
@@ -25,7 +19,7 @@ pipeline {
         stage('Login Registry') {
             steps {
                 sh '''
-                docker login $REGISTRY -u fajar -p fajarjuliansyah123
+                echo "fajarjuliansyah123" | docker login $REGISTRY -u fajar --password-stdin
                 '''
             }
         }
