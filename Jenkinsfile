@@ -5,6 +5,7 @@ pipeline {
         REGISTRY = "registry.fajarjuliansyah.store"
         IMAGE = "port-fajar"
         TAG = "latest"
+        SERVER = "ubuntu@43.173.30.124"
     }
 
     stages {
@@ -15,41 +16,27 @@ pipeline {
             }
         }
 
-        stage('Build Docker Image') {
+        stage('Build Image') {
             steps {
-                sh '''
-                docker build -t $REGISTRY/$IMAGE:$TAG .
-                '''
-            }
-        }
-
-        stage('Login Registry') {
-            steps {
-                withCredentials([usernamePassword(
-                    credentialsId: 'docker-registry',
-                    usernameVariable: 'DOCKER_USER',
-                    passwordVariable: 'DOCKER_PASS'
-                )]) {
-                    sh '''
-                    echo $DOCKER_PASS | docker login $REGISTRY -u $DOCKER_USER --password-stdin
-                    '''
-                }
+                sh 'docker build -t $REGISTRY/$IMAGE:$TAG .'
             }
         }
 
         stage('Push Image') {
             steps {
-                sh '''
-                docker push $REGISTRY/$IMAGE:$TAG
-                '''
+                sh 'docker push $REGISTRY/$IMAGE:$TAG'
             }
         }
 
         stage('Deploy') {
             steps {
                 sh '''
-                docker rm -f port-fajar || true
-                docker run -d -p 3000:80 --name port-fajar $REGISTRY/$IMAGE:$TAG
+                ssh -o StrictHostKeyChecking=no $SERVER << EOF
+                docker pull $REGISTRY/$IMAGE:$TAG
+                docker stop port-fajar || true
+                docker rm port-fajar || true
+                docker run -d --name port-fajar -p 3000:80 $REGISTRY/$IMAGE:$TAG
+                EOF
                 '''
             }
         }
