@@ -12,32 +12,36 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git 'https://github.com/FajarrJuliann/portfolio.git'
+                git branch: 'main', url: 'https://github.com/FajarrJuliann/portfolio.git'
             }
         }
 
         stage('Build Image') {
             steps {
-                sh 'docker build -t $REGISTRY/$IMAGE:$TAG .'
+                sh '''
+                docker build -t $REGISTRY/$IMAGE:$TAG .
+                '''
             }
         }
 
         stage('Push Image') {
             steps {
-                sh 'docker push $REGISTRY/$IMAGE:$TAG'
+                sh '''
+                docker push $REGISTRY/$IMAGE:$TAG
+                '''
             }
         }
 
-        stage('Deploy') {
+        stage('Deploy 🚀') {
             steps {
-                sh '''
-                ssh -o StrictHostKeyChecking=no $SERVER << EOF
-                docker pull $REGISTRY/$IMAGE:$TAG
-                docker stop port-fajar || true
-                docker rm port-fajar || true
+                sh """
+                ssh -o StrictHostKeyChecking=no $SERVER "
+                docker pull $REGISTRY/$IMAGE:$TAG &&
+                docker stop port-fajar || true &&
+                docker rm port-fajar || true &&
                 docker run -d --name port-fajar -p 3000:80 $REGISTRY/$IMAGE:$TAG
-                EOF
-                '''
+                "
+                """
             }
         }
     }
