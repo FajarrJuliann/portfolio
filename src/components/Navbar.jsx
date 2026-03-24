@@ -45,7 +45,7 @@ function Navbar() {
       <div className="max-w-6xl mx-auto flex justify-between items-center">
         {/* Logo/Brand */}
         <div className="text-2xl font-bold text-cyan-300 font-orbitron">
-          Fajar Julian
+          Syahrul
         </div>
 
         {/* Desktop Menu */}
